@@ -22,3 +22,21 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+```
+$ bundle add jwt
+$ bundle add active_model_serializers
+$ bundle add faker
+```
+
+# Uncomment rack-cors and bcrypt from your Gemfile
+
+# enable CORS
+
+```
+$ rails g model Admin username:string password_digest:string firstname:string lastname:string
+$ rails g controller api/v1/admins
+$ rails g serializer admin
+$ rails db:migrate
+$ rails db:seed
+```
