@@ -40,3 +40,11 @@ $ rails g serializer admin
 $ rails db:migrate
 $ rails db:seed
 ```
+
+# models
+
+```
+$ rails g model House address:string size:integer sold:boolean bed:integer bath:integer garage:integer image:string
+$ rails g model Agent name:string area:string rating:float sold:integer
+$ rails g migration CreateHousesAgentsJoinTable
+```
