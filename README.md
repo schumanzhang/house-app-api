@@ -1,50 +1,47 @@
-# README
+# House App API
+This is a demo of how to build an API using Ruby on Rails. You can connect to this API using React app or Postman etc. This is an API version of house-app.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Pre-requisite
+Ruby and Ruby of rails should be installed.
+`gem install rails`
 
-Things you may want to cover:
+## Dependencies
+Install the following dependencies
+`bundle add jwt`
+`bundle add active_model_serializers`
+`bundle add faker`
 
-* Ruby version
+Uncomment rack-cors and bcrypt from your Gemfile
+`bundle install`
 
-* System dependencies
+## Start the app
+`rails server`
 
-* Configuration
+## Use the rails console
+Use the Rails console to directly interact with your domain model. You can interact directly with ActiveRecord objects.
+`rails console`
 
-* Database creation
+## See current routes
+Rails routes are configured in config/routes.rb. To see current routes and their associated prefixes.
+`rails routes`
 
-* Database initialization
+## enable CORS
+You need to enable CORS in order for other apps to connect to this API
 
-* How to run the test suite
+## Generating models
+The following example commands generates active record models
+`rails generate model House address:string size:integer sold:boolean bed:integer bath:integer garage:integer image:string`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Applying db migrations
+After generating models you need to applying migrations to change the database schema
+`rails db:migrate`
 
-* Deployment instructions
+## Generate a migration file
+`rails generate migration CreateHousesAgentsJoinTable`
 
-* ...
+## Applying database seeds
+Seeds allow database to be initiated with some sample data. Just use active record in your db/seeds.rb file
+`rails db:seed`
 
-```
-$ bundle add jwt
-$ bundle add active_model_serializers
-$ bundle add faker
-```
-
-# Uncomment rack-cors and bcrypt from your Gemfile
-
-# enable CORS
-
-```
-$ rails g model Admin username:string password_digest:string firstname:string lastname:string
-$ rails g controller api/v1/admins
-$ rails g serializer admin
-$ rails db:migrate
-$ rails db:seed
-```
-
-# models
-
-```
-$ rails g model House address:string size:integer sold:boolean bed:integer bath:integer garage:integer image:string
-$ rails g model Agent name:string area:string rating:float sold:integer
-$ rails g migration CreateHousesAgentsJoinTable
-```
+## Authentication
+Token based authentication is implemented in this demo using JWT.
